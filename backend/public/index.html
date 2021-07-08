@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><!--[if IE]><link rel="icon" href="/favicon.ico"><![endif]--><title>frontend</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css"><style>/* Global */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+html{
+  width: 100%;
+  height: 100%;
+	}
+body {
+  width: 100%;
+  height: 100%;
+
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+}
+#app {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+	-webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+:root {
+
+  /* Color */
+
+  --color-white: #ffffff;
+
+  --color-light-white: #eeeeee;
+
+  --color-dark-white: #bdbdbd;
+
+  --color-pink: #fe918d;
+
+  --color-dark-pink: #ff6863;
+
+  --color-dark-grey: #4d4d4d;
+
+  --color-grey: #616161;
+
+  --color-light-grey: #7c7979;
+
+  --color-blue: #73aace;
+
+  --color-yellow: #fff7d1;
+
+  --color-orange: #feb546;
+
+  --color-black: #000000;
+
+  /* Font size */
+
+  --font-large: 48px;
+
+  --font-medium: 28px;
+
+  --font-regular: 18px;
+
+  --font-small: 16px;
+
+  --font-micro: 14px;
+
+  /* Font weight */
+
+  --weight-bold: 700;
+
+  --weight-semi-bold: 600;
+
+  --weight-regular: 400;
+
+}</style><link href="/css/app~d0ae3f07.f07364a9.css" rel="preload" as="style"><link href="/css/chunk-vendors~43484119.12eeff44.css" rel="preload" as="style"><link href="/css/chunk-vendors~4a7e9e0b.d0b0e219.css" rel="preload" as="style"><link href="/js/app~d0ae3f07.77488a11.js" rel="preload" as="script"><link href="/js/chunk-vendors~253ae210.ccd3d9de.js" rel="preload" as="script"><link href="/js/chunk-vendors~43484119.2c16bc43.js" rel="preload" as="script"><link href="/js/chunk-vendors~4a7e9e0b.3b3bcd9d.js" rel="preload" as="script"><link href="/js/chunk-vendors~678f84af.46028bc3.js" rel="preload" as="script"><link href="/js/chunk-vendors~d2305125.556e3034.js" rel="preload" as="script"><link href="/js/chunk-vendors~d939e436.0d30edbc.js" rel="preload" as="script"><link href="/js/chunk-vendors~f9ca8911.a2364d65.js" rel="preload" as="script"><link href="/js/chunk-vendors~fdc6512a.0d2995df.js" rel="preload" as="script"><link href="/css/chunk-vendors~4a7e9e0b.d0b0e219.css" rel="stylesheet"><link href="/css/chunk-vendors~43484119.12eeff44.css" rel="stylesheet"><link href="/css/app~d0ae3f07.f07364a9.css" rel="stylesheet"><link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#4DBA87"><meta name="apple-mobile-web-app-capable" content="no"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="frontend"><link rel="apple-touch-icon" href="/img/icons/apple-touch-icon-152x152.png"><link rel="mask-icon" href="/img/icons/safari-pinned-tab.svg" color="#4DBA87"><meta name="msapplication-TileImage" content="/img/icons/msapplication-icon-144x144.png"><meta name="msapplication-TileColor" content="#000000"></head><body><noscript><strong>We're sorry but frontend doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script src="/js/chunk-vendors~253ae210.ccd3d9de.js"></script><script src="/js/chunk-vendors~d939e436.0d30edbc.js"></script><script src="/js/chunk-vendors~f9ca8911.a2364d65.js"></script><script src="/js/chunk-vendors~678f84af.46028bc3.js"></script><script src="/js/chunk-vendors~fdc6512a.0d2995df.js"></script><script src="/js/chunk-vendors~d2305125.556e3034.js"></script><script src="/js/chunk-vendors~4a7e9e0b.3b3bcd9d.js"></script><script src="/js/chunk-vendors~43484119.2c16bc43.js"></script><script src="/js/app~d0ae3f07.77488a11.js"></script></body></html>

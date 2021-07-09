@@ -1,19 +1,37 @@
 <template>
-	<v-app>
+	<v-app class="my-application">
 		<v-app-bar
       app
       dark
-      style="width:100%; height:56px; max-width:1000px; left:unset; right:unset"
+      style="width:100%; height:56px; max-width:1000px; left:unset; right:unset;"
     >
+    <div class="jp-weight-3" style="color:white; font-size:20px">
+      KAIWA
+    </div>
 		</v-app-bar>
 		<v-main
-      style="width: 100%; height: 100%; padding:56px 0 56px 0; max-width:1000px;"
+      style="width: 100%; height: 100%; padding:56px 0 0 0; max-width:1000px;"
     >
       <router-view
         style="height: 100%; width: 100%; overflow: auto; padding:10px; max-width:unset;"
       ></router-view>
     </v-main>
-		<v-footer
+    <div style="position: absolute; bottom: 30px; left: 30px">
+      <v-btn
+
+        fab
+        dark
+        medium
+        color="primary"
+        @click="slider = true"
+      >
+        <v-icon dark> mdi-menu </v-icon>
+      </v-btn>
+      <!-- <v-btn v-else-if="2" fab dark medium color="primary" @click="emitToHome">
+        <v-icon dark> mdi-keyboard-backspace </v-icon>
+      </v-btn> -->
+    </div>
+		<!-- <v-footer
       padless
       absolute
       style="
@@ -31,7 +49,29 @@
     <div>
       footer
     </div>
-		</v-footer>
+		</v-footer> -->
+    <v-navigation-drawer v-model="slider" absolute temporary>
+      <v-list nav>
+        <v-list-item-group
+          v-model="group"
+          active-class="deep-purple--text text--accent-4"
+        >
+          <v-list-item >
+            <v-list-item-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-account</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Account</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
 	</v-app>
 </template>
 
@@ -41,7 +81,8 @@ export default {
   name: 'App',
 
   data: () => ({
-    //
+    slider: false,
+    group: null,
   }),
 };
 </script>
@@ -59,7 +100,7 @@ export default {
   height: 100% !important;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 </style>
 

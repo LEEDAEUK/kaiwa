@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;500;700&display=swap");
+$font-family-jp: "M PLUS Rounded 1c", sans-serif;
+.my-application {
+  [class*="jp-weight-1"] {
+    color: black;
+    font-family: $font-family-jp !important;
+    font-weight: 300;
+  }
+  [class*="jp-weight-2"] {
+    color: black;
+    font-family: $font-family-jp !important;
+    font-weight: 500;
+  }
+  [class*="jp-weight-3"] {
+    color: black;
+    font-family: $font-family-jp !important;
+    font-weight: 700;
+  }
+  color: black;
+  font-weight: 500;
+  font-family: $font-family-jp !important;
+}

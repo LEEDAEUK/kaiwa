@@ -1,6 +1,6 @@
 <template>
-	<v-container>
-		<!-- <div style="height:100px">
+  <v-container>
+    <!-- <div style="height:100px">
       <v-btn @click="sendRequest(1)">
         1
       </v-btn>
@@ -19,7 +19,7 @@
     <div>
       <v-text-field
         class="child"
-        style="margin:0 0 10px 0"
+        style="margin: 0 0 10px 0"
         solo
         hide-details
         inner
@@ -31,40 +31,53 @@
         @click:append="search()"
         v-on:keyup.native="enterKey()"
       ></v-text-field>
-      <Home_1 ></Home_1>
+      <Home1 v-if="current_page == 1"></Home1>
+      <Home2 v-else-if="current_page == 2"></Home2>
     </div>
-	</v-container>
+  </v-container>
 </template>
 
 <script>
-  import mxCrud from "./mixins/crud.js";
-  import Home_1 from "../components/Home/Home_1.vue";
-  import Home_2 from "../components/Home/Home_2.vue";
+import Home_1 from "../components/Home/Home_1.vue";
+import Home_2 from "../components/Home/Home_2.vue";
 
-  export default {
-    name: 'Home',
-    created(){
-      this.getPage()
+export default {
+  name: "Home",
+  created() {
+    this.getPage();
+  },
+  components: {
+    Home1: Home_1,
+    Home2: Home_2,
+  },
+  props: ["to_home1"],
+  data: () => ({
+    selected: null,
+    res_data: null,
+    search_keyword: null,
+    current_page: 1,
+  }),
+  methods: {
+    async getPage() {
+      console.log("Home:getPage");
     },
-    mixins: [mxCrud],
-    components: {
-      Home_1: Home_1,
-      Home_2: Home_2,
+    search() {
+      this.current_page = 2;
+      this.$emit("pageChange", 2);
     },
-    data: () => ({
-      selected:null,
-      res_data:null,
-      search_keyword:null
-    }),
-    methods:{
-      async getPage(){
-        console.log("Home:getPage")
-        
-      },
-      // sendRequest(num){
-      //   this.MxReadData(`home/info/${num}`)
-      // }
-      
-    }
-  }
+    enterKey() {
+      if (window.event.keyCode == 13) {
+        this.search();
+      }
+    },
+  },
+  watch: {
+    to_home1: function (newVal, oldVal) {
+      console.log(newVal);
+      if (newVal == true) {
+        this.current_page = 1;
+      }
+    },
+  },
+};
 </script>

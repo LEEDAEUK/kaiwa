@@ -29,10 +29,13 @@
         v-model="search_keyword"
         append-icon="mdi-magnify"
         @click:append="search()"
-        v-on:keyup.native="enterKey()"
+        @keydown.enter.native="enterKey()"
       ></v-text-field>
       <Home1 v-if="current_page == 1"></Home1>
-      <Home2 v-else-if="current_page == 2"></Home2>
+      <Home2
+        v-else-if="current_page == 2"
+        :props_keyword="props_keyword"
+      ></Home2>
     </div>
   </v-container>
 </template>
@@ -55,6 +58,7 @@ export default {
     selected: null,
     res_data: null,
     search_keyword: null,
+    props_keyword: null,
     current_page: 1,
   }),
   methods: {
@@ -62,13 +66,19 @@ export default {
       console.log("Home:getPage");
     },
     search() {
-      this.current_page = 2;
-      this.$emit("pageChange", 2);
+      console.log(this.keywordCheck(this.search_keyword));
+      if (this.keywordCheck(this.search_keyword) == true) {
+        this.current_page = 2;
+        this.props_keyword = this.search_keyword;
+        this.$emit("pageChange", 2);
+      }
     },
     enterKey() {
-      if (window.event.keyCode == 13) {
-        this.search();
-      }
+      if (window.event.keyCode !== 13) return;
+      this.search();
+    },
+    keywordCheck(str) {
+      return str.match(/^[ぁ-んァ-ン一-龥]/) ? true : false;
     },
   },
   watch: {

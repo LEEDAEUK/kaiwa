@@ -22,11 +22,16 @@ router.get('/info/:id', function (req, res, next) {
 
 });
 
-router.get('/home_2', function (req, res, next) {
+router.get('/home_2/:keyword', function (req, res, next) {
+
+
+  var keyword = req.params.keyword
+  console.log(keyword)
 
   var sql = `
-  SELECT * FROM k_situation
+  SELECT * FROM k_place WHERE tag LIKE N'%${keyword}%'
   `;
+  console.log(sql)
 
   new Promise(function (resolve, reject) {
     getF.getF(sql, resolve)

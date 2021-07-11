@@ -11,6 +11,7 @@ export default {
         .then((response) => {
           if (response.data.message == "good") {
             this.res_data = response.data.result
+            console.log(this.res_data)
           }
 
         });

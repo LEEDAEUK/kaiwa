@@ -85,6 +85,7 @@ export default {
     to_home1: function (newVal, oldVal) {
       console.log(newVal);
       if (newVal == true) {
+        this.search_keyword = "";
         this.current_page = 1;
       }
     },

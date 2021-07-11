@@ -28,8 +28,11 @@ router.get('/home_2/:keyword', function (req, res, next) {
   var keyword = req.params.keyword
   console.log(keyword)
 
+  // var sql = `
+  // SELECT * FROM k_place WHERE tag LIKE N'%${keyword}%'
+  // `;
   var sql = `
-  SELECT * FROM k_place WHERE tag LIKE N'%${keyword}%'
+  SELECT st.situation_code , st.situation_name FROM k_situation st INNER JOIN k_place pl ON pl.place_code = st.place_code WHERE pl.tag LIKE N'%${keyword}%'
   `;
   console.log(sql)
 

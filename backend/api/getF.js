@@ -1,3 +1,4 @@
+'use strict'
 const { Connection, Request } = require("tedious");
 
 const config = {
@@ -16,13 +17,13 @@ const config = {
 };
 
 function conn(sql, callback) {
-  var connection = new Connection(config);
+  let connection = new Connection(config);
   connection.on("connect", function (err) {
     if (err) {
       console.log("\nSQL Sevrer connect error.(" + err + ")\n");
       process.exit();
     }
-    var request = new Request(sql, function (err) {
+    let request = new Request(sql, function (err) {
       if (err) {
         console.log(err.message);
         if (err.message == "1") {
@@ -36,7 +37,7 @@ function conn(sql, callback) {
     });
 
     let data = [];
-    var result = {};
+    let result = {};
     request.on("row", function (columns) {
       columns.forEach(function (column) {
         result[column.metadata.colName] = column.value;

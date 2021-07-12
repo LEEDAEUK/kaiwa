@@ -11,7 +11,13 @@
         right: unset;
       "
     >
-      <div class="jp-weight-3" style="color: white; font-size: 20px">KAIWA</div>
+      <div
+        class="jp-weight-3"
+        style="color: white; font-size: 20px"
+        @click="toHome1"
+      >
+        KAIWA
+      </div>
     </v-app-bar>
     <v-main
       style="width: 100%; height: 100%; padding: 56px 0 0 0; max-width: 1000px"
@@ -27,20 +33,21 @@
         @pageChange="pageChange"
         :to_home1="to_home1"
       ></router-view>
+      <div style="position: absolute; bottom: 30px; left: 30px">
+        <v-btn fab dark medium color="primary" @click="slider = true">
+          <v-icon dark> mdi-menu </v-icon>
+        </v-btn>
+        <!-- <v-btn v-else-if="2" fab dark medium color="primary" @click="emitToHome">
+          <v-icon dark> mdi-keyboard-backspace </v-icon>
+        </v-btn> -->
+      </div>
+      <div v-if="back_on" style="position: absolute; bottom: 30px; right: 30px">
+        <v-btn fab dark medium color="primary" @click="toHome1">
+          <v-icon dark> mdi-arrow-left </v-icon>
+        </v-btn>
+      </div>
     </v-main>
-    <div style="position: absolute; bottom: 30px; left: 30px">
-      <v-btn fab dark medium color="primary" @click="slider = true">
-        <v-icon dark> mdi-menu </v-icon>
-      </v-btn>
-      <!-- <v-btn v-else-if="2" fab dark medium color="primary" @click="emitToHome">
-        <v-icon dark> mdi-keyboard-backspace </v-icon>
-      </v-btn> -->
-    </div>
-    <div v-if="back_on" style="position: absolute; bottom: 30px; right: 30px">
-      <v-btn fab dark medium color="primary" @click="toHome1">
-        <v-icon dark> mdi-arrow-left </v-icon>
-      </v-btn>
-    </div>
+
     <!-- <v-footer
       padless
       absolute
@@ -165,6 +172,21 @@ export default {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+}
+.popup {
+  padding: 10px;
+}
+.popup_top {
+  margin: 0 0 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.popup_mid {
+}
+.popup_bottom {
+  margin: 20px 0 0 0;
+  display: flex;
+  flex-direction: column;
 }
 .wrap_div {
   width: 100%;

@@ -1,16 +1,17 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+'use strict'
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 const cors = require('cors');
 require('dotenv').config();
 
-var indexRouter = require('./routes/index');
-var homeRouter = require('./routes/home');
-var aboutRouter = require('./routes/about');
+let indexRouter = require('./routes/index');
+let homeRouter = require('./routes/home');
+let aboutRouter = require('./routes/about');
 
-var app = express();
+let app = express();
 
 app.use(cors()); //작성해주자
 app.use(require('connect-history-api-fallback')());
@@ -29,12 +30,12 @@ app.use('/api/home', homeRouter);
 app.use('/api/about', aboutRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

@@ -27,7 +27,8 @@
           </v-btn>
         </div>
         <div class="popup_mid jp-weight-1" v-if="res_seleted_data != null">
-          <div v-if="res_seleted_data.length != 0">{{ res_seleted_data }}</div>
+          <div v-if="res_seleted_data.length != 0">{{ lang1 }}</div>
+          <div v-if="res_seleted_data.length != 0">{{ lang2 }}</div>
           <div v-else>データが存在していません。</div>
         </div>
         <div
@@ -69,6 +70,8 @@ export default {
       kaiwa_sw: false,
       situation_name: "",
       is_loaded: false,
+      lang1: null,
+      lang2: null,
     };
   },
 
@@ -91,8 +94,14 @@ export default {
         .get(`/api/home/home_2/get_seleted_kaiwa/${situation_code}`)
         .then((response) => {
           if (response.data.message == "good") {
-            this.res_seleted_data = response.data.result;
-            console.log(this.res_seleted_data);
+            console.log(response.data);
+            if (response.data.result.length == 2) {
+              this.lang1 = response.data.result[0].kaiwa;
+              this.lang2 = response.data.result[1].kaiwa;
+              this.res_seleted_data = response.data.result;
+            } else {
+              this.res_seleted_data = [];
+            }
           }
         });
     },

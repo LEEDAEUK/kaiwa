@@ -27,12 +27,12 @@ router.get('/home_2/get_list/:keyword', function (req, res, next) {
   let keyword = req.params.keyword
   console.log(keyword)
 
-  // let sql = `
-  // SELECT * FROM k_place WHERE tag LIKE N'%${keyword}%'
-  // `;
   let sql = `
-  SELECT st.situation_code , st.situation_name FROM k_situation st INNER JOIN k_place pl ON pl.place_code = st.place_code WHERE pl.tag LIKE N'%${keyword}%'
+  SELECT st.situation_code, st.situation_name FROM k_situation st INNER JOIN k_place pl ON pl.place_code = st.place_code WHERE pl.tag LIKE N'%${keyword}%'
   `;
+  // let sql = `
+  // SELECT kw.situation_code, st.situation_name FROM k_kaiwa kw INNER JOIN k_situation st ON st.situation_code = kw.situation_code INNER JOIN k_place pl ON pl.place_code = st.place_code WHERE pl.tag LIKE N'%${keyword}%'
+  // `;
   console.log(sql)
 
   new Promise(function (resolve, reject) {

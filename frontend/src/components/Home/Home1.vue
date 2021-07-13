@@ -1,6 +1,6 @@
 <template>
-  <div style="margin: 30px 0 0 0">
-    <div class="flex_row_unset_center">
+  <div style="margin: 15px 0 0 0">
+    <div class="flex_column_center_center">
       <v-carousel
         v-model="model"
         hide-delimiters
@@ -29,18 +29,42 @@
         </v-carousel-item>
       </v-carousel>
     </div>
-    <div style="margin: 10px 0 0 0">
+    <div style="margin: 15px 0 0 0">
       <v-slide-group center-active mandatory v-model="option">
-        <v-slide-item v-for="n in 5" :key="n" v-slot="{ active, toggle }">
+        <v-slide-item v-slot="{ active, toggle }">
           <v-btn
             class="mx-2"
             :input-value="active"
-            active-class="purple white--text"
+            active-class="yellow white--text"
             depressed
             rounded
             @click="toggle"
           >
-            Options {{ n }}
+            本日の会話
+          </v-btn>
+        </v-slide-item>
+        <v-slide-item v-slot="{ active, toggle }">
+          <v-btn
+            class="mx-2"
+            :input-value="active"
+            active-class="yellow white--text"
+            depressed
+            rounded
+            @click="toggle"
+          >
+            昨日の人気会話
+          </v-btn>
+        </v-slide-item>
+        <v-slide-item v-slot="{ active, toggle }">
+          <v-btn
+            class="mx-2"
+            :input-value="active"
+            active-class="yellow white--text"
+            depressed
+            rounded
+            @click="toggle"
+          >
+            保存の会話
           </v-btn>
         </v-slide-item>
       </v-slide-group>

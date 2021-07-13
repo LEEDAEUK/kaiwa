@@ -1,5 +1,5 @@
 <template>
-  <div style="margin:30px 0 0 0;">
+  <div style="margin:15px 0 0 0;">
     <div v-if="res_data == null" class="flex_row_center_center" style="height:100px;">
       <v-progress-circular indeterminate color="primary"></v-progress-circular>
     </div>

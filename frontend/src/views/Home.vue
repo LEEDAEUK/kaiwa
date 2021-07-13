@@ -46,8 +46,8 @@
 </template>
 
 <script>
-import Home_1 from "../components/Home/Home_1.vue";
-import Home_2 from "../components/Home/Home_2.vue";
+import Home1 from "../components/Home/Home1.vue";
+import Home2 from "../components/Home/Home2.vue";
 
 export default {
   name: "Home",
@@ -55,8 +55,8 @@ export default {
     this.getPage();
   },
   components: {
-    Home1: Home_1,
-    Home2: Home_2,
+    Home1: Home1,
+    Home2: Home2,
   },
   props: ["to_home1"],
   data: () => ({

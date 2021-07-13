@@ -5,7 +5,6 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 import API from './api/axios'
-
 Vue.prototype.$ax = API
 
 Vue.config.productionTip = false

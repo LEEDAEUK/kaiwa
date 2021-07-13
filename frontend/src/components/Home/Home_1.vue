@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <div style="display: 100%" class="flex_row_center_center">
+  <div style="margin:30px 0 0 0">
+    <div class="flex_row_center_center">
       <v-carousel
         v-model="model"
         hide-delimiters
-        style="height: 200px; max-width: 400px"
+        style="height: 200px; max-width: 355px"
         cycle
         interval="4000"
       >
@@ -18,14 +18,14 @@
             <v-icon> mdi-menu-right </v-icon>
           </v-btn>
         </template>
-        <v-carousel-item eager style="height: 200px">
-          <v-img style="height: 200px" src="../../assets/parking1.jpeg" eager />
+        <v-carousel-item eager>
+          <v-img src="../../assets/parking1.jpeg" eager aspect-ratio="1.7778"/>
         </v-carousel-item>
         <v-carousel-item eager>
-          <v-img style="height: 200px" src="../../assets/parking2.jpeg" eager />
+          <v-img src="../../assets/parking2.jpeg" eager aspect-ratio="1.7778"/>
         </v-carousel-item>
         <v-carousel-item eager>
-          <v-img style="height: 200px" src="../../assets/parking3.jpeg" eager />
+          <v-img src="../../assets/parking3.jpeg" eager aspect-ratio="1.7778"/>
         </v-carousel-item>
       </v-carousel>
     </div>

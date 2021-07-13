@@ -34,7 +34,7 @@
         :to_home1="to_home1"
       ></router-view>
       <div style="position: absolute; bottom: 30px; left: 30px">
-        <v-btn fab dark medium color="primary" @click="slider = true">
+        <v-btn fab dark medium color="var(--color-yellow)" @click="slider = true">
           <v-icon dark> mdi-menu </v-icon>
         </v-btn>
         <!-- <v-btn v-else-if="2" fab dark medium color="primary" @click="emitToHome">
@@ -42,7 +42,7 @@
         </v-btn> -->
       </div>
       <div v-if="back_on" style="position: absolute; bottom: 30px; right: 30px">
-        <v-btn fab dark medium color="primary" @click="toHome1">
+        <v-btn fab dark medium color="var(--color-yellow)" @click="toHome1">
           <v-icon dark> mdi-arrow-left </v-icon>
         </v-btn>
       </div>
@@ -191,5 +191,26 @@ export default {
 .wrap_div {
   width: 100%;
   margin: 0 0 10px 0;
+}
+
+/* .list_btn::before{
+  background-color:var(--color-yellow)!important
+} */
+.v-btn:before {
+  opacity: 0 !important;
+}
+.v-ripple__container {
+  opacity: 0 !important;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.2s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
 }
 </style>

@@ -31,11 +31,16 @@
         @click:append="search()"
         @keydown.enter.native="enterKey()"
       ></v-text-field>
-      <Home1 v-if="current_page == 1"></Home1>
-      <Home2
-        v-else-if="current_page == 2"
-        :props_keyword="props_keyword"
-      ></Home2>
+      <transition name="fade" mode="out-in" v-if="current_page == 1">
+        <Home1></Home1>
+      </transition>
+      <transition name="fade" mode="out-in" v-else-if="current_page == 2">
+        <Home2
+          :props_keyword="props_keyword"
+        ></Home2>
+      </transition>
+      
+      
     </div>
   </v-container>
 </template>

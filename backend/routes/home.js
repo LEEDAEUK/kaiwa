@@ -28,7 +28,7 @@ router.get('/home_2/get_list/:keyword', function (req, res, next) {
   console.log(keyword)
 
   let sql = `
-  SELECT st.situation_code, st.situation_name FROM k_situation st INNER JOIN k_place pl ON pl.place_code = st.place_code WHERE pl.tag LIKE N'%${keyword}%'
+  SELECT pl.place_name, st.situation_code, st.situation_name FROM k_situation st INNER JOIN k_place pl ON pl.place_code = st.place_code WHERE pl.tag LIKE N'%${keyword}%'
   `;
   // let sql = `
   // SELECT kw.situation_code, st.situation_name FROM k_kaiwa kw INNER JOIN k_situation st ON st.situation_code = kw.situation_code INNER JOIN k_place pl ON pl.place_code = st.place_code WHERE pl.tag LIKE N'%${keyword}%'

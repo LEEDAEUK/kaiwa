@@ -34,7 +34,13 @@
         :to_home1="to_home1"
       ></router-view>
       <div style="position: absolute; bottom: 30px; left: 30px">
-        <v-btn fab dark medium color="var(--color-yellow)" @click="slider = true">
+        <v-btn
+          fab
+          dark
+          medium
+          color="var(--color-yellow)"
+          @click="slider = true"
+        >
           <v-icon dark> mdi-menu </v-icon>
         </v-btn>
         <!-- <v-btn v-else-if="2" fab dark medium color="primary" @click="emitToHome">
@@ -89,10 +95,32 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
+    <v-dialog max-width="320" persistent :value="updateExists">
+      <v-card class="popup">
+        <div class="popup_top">
+          <div>アップデート通知</div>
+        </div>
+        <div class="popup_mid jp-weight-1">
+          <div>新しいバージョンにアップデートする</div>
+        </div>
+        <div class="popup_bottom">
+          <v-btn
+            style="width: 100%; margin: 0 0 10px 0"
+            height="40"
+            elevation="2"
+            rounded
+            color="white"
+            @click="refreshApp"
+            >アップデートを行う</v-btn
+          >
+        </div>
+      </v-card>
+    </v-dialog>
   </v-app>
 </template>
 
 <script>
+import update from "./components/mixins/update";
 export default {
   name: "App",
 
@@ -102,6 +130,7 @@ export default {
     back_on: false,
     to_home1: false,
   }),
+  mixins: [update],
   methods: {
     pageChange(page) {
       console.log(page);

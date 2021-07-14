@@ -32,7 +32,7 @@
         @keydown.enter.native="enterKey()"
       ></v-text-field>
       <transition name="fade" mode="out-in" v-if="current_page == 1">
-        <Home1></Home1>
+        <Home1 @getKeyword="getKeyword"></Home1>
       </transition>
       <transition name="fade" mode="out-in" v-else-if="current_page == 2">
         <Home2
@@ -85,6 +85,11 @@ export default {
     keywordCheck(str) {
       return str.match(/^[ぁ-んァ-ン一-龥]/) ? true : false;
     },
+    getKeyword(keyword){
+      this.current_page = 2;
+      this.props_keyword = keyword
+      this.$emit("pageChange", 2);
+    }
   },
   watch: {
     to_home1: function (newVal, oldVal) {

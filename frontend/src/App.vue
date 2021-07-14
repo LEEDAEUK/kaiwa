@@ -95,7 +95,7 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-    <v-dialog max-width="320" persistent :value="updateExists">
+    <v-dialog persistent :value="updateExists" max-width="320">
       <v-card class="popup">
         <div class="popup_top">
           <div>アップデート通知</div>
